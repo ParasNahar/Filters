@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.6.33)
 # Database: cart
-# Generation Time: 2017-01-03 21:44:35 +0000
+# Generation Time: 2017-01-10 03:56:38 +0000
 # ************************************************************
 
 
@@ -440,27 +440,34 @@ CREATE TABLE `products` (
   `slug` varchar(255) NOT NULL DEFAULT '',
   `description` text,
   `price` float NOT NULL,
+  `weight` float DEFAULT NULL,
   `image` varchar(255) NOT NULL DEFAULT '',
   `stock` int(11) NOT NULL,
   `category` int(11) DEFAULT NULL,
   `featured` enum('y','n') DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `attributes` varchar(255) DEFAULT '',
+  `shape` varchar(255) DEFAULT NULL,
+  `color` varchar(255) DEFAULT NULL,
+  `gemtype` varchar(255) DEFAULT NULL,
+  `minprice` float DEFAULT NULL,
+  `maxprice` float DEFAULT NULL,
+  `minweight` float DEFAULT NULL,
+  `maxweight` float DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 
-INSERT INTO `products` (`id`, `title`, `slug`, `description`, `price`, `image`, `stock`, `category`, `featured`, `created_at`, `updated_at`, `attributes`)
+INSERT INTO `products` (`id`, `title`, `slug`, `description`, `price`, `weight`, `image`, `stock`, `category`, `featured`, `created_at`, `updated_at`, `shape`, `color`, `gemtype`, `minprice`, `maxprice`, `minweight`, `maxweight`)
 VALUES
-	(1,'Diamond ','diamond','Raising say express had chiefly detract demands she. ',3,'/images/diamondring.jpg',95,1,'y',NULL,'2016-12-18 03:59:46','price, color, shape, weight, gemtype'),
-	(2,'Ruby Ring','ruby','Raising say express had chiefly detract demands she. ',2,'/images/diamondring.jpg',99,1,'y',NULL,'2016-12-25 04:05:05','price, color, shape, weight, gemtype'),
-	(3,'Emerald ','emerald','Raising say express had chiefly detract demands she. ',23,'/images/diamondring.jpg',98,2,'y',NULL,'2016-12-08 04:09:45','price, color, shape, weight, gemtype'),
-	(4,'Peridot ','peridot','Raising say express had chiefly detract demands she. ',4,'/images/diamondring.jpg',99,2,'y',NULL,'2016-12-06 23:52:09','price, color, shape, weight, gemtype'),
-	(5,'Turquoise ','turquoise','Raising say express had chiefly detract demands she. ',3,'/images/diamondring.jpg',99,12,'',NULL,'2016-12-06 23:36:35','price, color, shape, weight, gemtype'),
-	(6,'Zircon ','zircon','nfrnfowewjnfkewnfew\n',43,'/images/diamondring.jpg',100,5,'',NULL,NULL,'price, color, shape, weight, gemtype');
+	(1,'Diamond ','diamond','Raising say express had chiefly detract demands she. ',3,2,'/images/diamondring.jpg',95,1,'y',NULL,'2016-12-18 03:59:46','trapeze','pink','diamond',1,5,1,5),
+	(2,'Ruby Ring','ruby','Raising say express had chiefly detract demands she. ',2,4,'/images/diamondring.jpg',99,1,'y',NULL,'2016-12-25 04:05:05','diamond','yellow','ruby',1,5,2,4),
+	(3,'Emerald ','emerald','Raising say express had chiefly detract demands she. ',23,12,'/images/diamondring.jpg',98,2,'y',NULL,'2016-12-08 04:09:45','square','orange','emerald',20,30,3,15),
+	(4,'Peridot ','peridot','Raising say express had chiefly detract demands she. ',4,3,'/images/diamondring.jpg',99,2,'y',NULL,'2016-12-06 23:52:09','oval','green','peridot',1,5,1,4),
+	(5,'Turquoise ','turquoise','Raising say express had chiefly detract demands she. ',3,7,'/images/diamondring.jpg',99,12,'',NULL,'2016-12-06 23:36:35','rectangular','blue','turquoise',1,5,3,7),
+	(6,'Zircon ','zircon','nfrnfowewjnfkewnfew\n',43,19,'/images/diamondring.jpg',100,5,'',NULL,NULL,'heart','green','zircon',40,50,18,23);
 
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
