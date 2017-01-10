@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.6.33)
 # Database: cart
-# Generation Time: 2017-01-10 03:56:38 +0000
+# Generation Time: 2017-01-10 21:12:41 +0000
 # ************************************************************
 
 
@@ -34,7 +34,7 @@ CREATE TABLE `addresses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `addresses` WRITE;
 /*!40000 ALTER TABLE `addresses` DISABLE KEYS */;
@@ -77,7 +77,7 @@ CREATE TABLE `categories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
@@ -113,7 +113,7 @@ CREATE TABLE `customers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
@@ -162,7 +162,7 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `email_sent` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
@@ -248,7 +248,7 @@ CREATE TABLE `orders_products` (
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `orders_products` WRITE;
 /*!40000 ALTER TABLE `orders_products` DISABLE KEYS */;
@@ -377,7 +377,7 @@ CREATE TABLE `payments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `payments` WRITE;
 /*!40000 ALTER TABLE `payments` DISABLE KEYS */;
@@ -450,24 +450,20 @@ CREATE TABLE `products` (
   `shape` varchar(255) DEFAULT NULL,
   `color` varchar(255) DEFAULT NULL,
   `gemtype` varchar(255) DEFAULT NULL,
-  `minprice` float DEFAULT NULL,
-  `maxprice` float DEFAULT NULL,
-  `minweight` float DEFAULT NULL,
-  `maxweight` float DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 
-INSERT INTO `products` (`id`, `title`, `slug`, `description`, `price`, `weight`, `image`, `stock`, `category`, `featured`, `created_at`, `updated_at`, `shape`, `color`, `gemtype`, `minprice`, `maxprice`, `minweight`, `maxweight`)
+INSERT INTO `products` (`id`, `title`, `slug`, `description`, `price`, `weight`, `image`, `stock`, `category`, `featured`, `created_at`, `updated_at`, `shape`, `color`, `gemtype`)
 VALUES
-	(1,'Diamond ','diamond','Raising say express had chiefly detract demands she. ',3,2,'/images/diamondring.jpg',95,1,'y',NULL,'2016-12-18 03:59:46','trapeze','pink','diamond',1,5,1,5),
-	(2,'Ruby Ring','ruby','Raising say express had chiefly detract demands she. ',2,4,'/images/diamondring.jpg',99,1,'y',NULL,'2016-12-25 04:05:05','diamond','yellow','ruby',1,5,2,4),
-	(3,'Emerald ','emerald','Raising say express had chiefly detract demands she. ',23,12,'/images/diamondring.jpg',98,2,'y',NULL,'2016-12-08 04:09:45','square','orange','emerald',20,30,3,15),
-	(4,'Peridot ','peridot','Raising say express had chiefly detract demands she. ',4,3,'/images/diamondring.jpg',99,2,'y',NULL,'2016-12-06 23:52:09','oval','green','peridot',1,5,1,4),
-	(5,'Turquoise ','turquoise','Raising say express had chiefly detract demands she. ',3,7,'/images/diamondring.jpg',99,12,'',NULL,'2016-12-06 23:36:35','rectangular','blue','turquoise',1,5,3,7),
-	(6,'Zircon ','zircon','nfrnfowewjnfkewnfew\n',43,19,'/images/diamondring.jpg',100,5,'',NULL,NULL,'heart','green','zircon',40,50,18,23);
+	(1,'Diamond ','diamond','Raising say express had chiefly detract demands she. ',3,2,'/images/diamondring.jpg',95,1,'y',NULL,'2016-12-18 03:59:46','trapeze','pink','diamond'),
+	(2,'Ruby Ring','ruby','Raising say express had chiefly detract demands she. ',2,4,'/images/diamondring.jpg',99,1,'y',NULL,'2016-12-25 04:05:05','diamond','yellow','ruby'),
+	(3,'Emerald ','emerald','Raising say express had chiefly detract demands she. ',23,12,'/images/diamondring.jpg',98,2,'y',NULL,'2016-12-08 04:09:45','square','orange','emerald'),
+	(4,'Peridot ','peridot','Raising say express had chiefly detract demands she. ',4,3,'/images/diamondring.jpg',99,2,'y',NULL,'2016-12-06 23:52:09','oval','green','peridot'),
+	(5,'Turquoise ','turquoise','Raising say express had chiefly detract demands she. ',3,7,'/images/diamondring.jpg',99,12,'',NULL,'2016-12-06 23:36:35','rectangular','blue','turquoise'),
+	(6,'Zircon ','zircon','nfrnfowewjnfkewnfew\n',43,19,'/images/diamondring.jpg',100,5,'',NULL,NULL,'heart','green','zircon');
 
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
